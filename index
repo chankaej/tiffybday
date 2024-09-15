@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Image Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: none;
+        }
+
+        .password-prompt {
+            margin-top: 100px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .error, .success {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .hint {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .image-container {
+            margin-top: 50px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="password-prompt">
+        <h1>Enter Password to access timeline for 21st September 2024</h1>
+        <p class="hint">Hint: kai is ha__s_me</p>
+        <input type="text" id="password" placeholder="Enter password">
+        <br>
+        <button onclick="checkPassword()">Submit</button>
+        <p class="error" id="error-msg"></p>
+        <p class="success" id="success-msg"></p>
+    </div>
+
+    <div class="container" id="container">
+        <h2>Good job, your answer is right</h2>
+        <div class="image-container">
+            <img src="Tiffybday.png" alt="Tiffy's 24th Birthday Plan">
+        </div>
+    </div>
+
+    <script>
+        const correctPassword = "kai is handsome"; // The correct password
+
+        function checkPassword() {
+            const inputPassword = document.getElementById("password").value;
+            const errorMsg = document.getElementById("error-msg");
+            const successMsg = document.getElementById("success-msg");
+            const container = document.getElementById("container");
+            const passwordPrompt = document.querySelector('.password-prompt');
+
+            if (inputPassword === correctPassword) {
+                errorMsg.textContent = "";
+                successMsg.textContent = "Good job, your answer is right!";
+                passwordPrompt.style.display = "none";
+                container.style.display = "block";
+            } else {
+                errorMsg.textContent = "Who else is the most handsome?";
+                successMsg.textContent = "";
+            }
+        }
+    </script>
+</body>
+</html>
